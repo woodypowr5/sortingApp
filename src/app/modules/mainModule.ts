@@ -1,7 +1,6 @@
 import { ControlModule } from './controlModule';
-import { Constants } from './../data/constants';
-import { StateModule } from './stateModule';
-import { Injectable } from '../../../node_modules/@angular/core';
+import { Constants } from '../data/constants';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MainModule {

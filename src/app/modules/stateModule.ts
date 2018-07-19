@@ -1,6 +1,6 @@
-import { Register } from './../types/register.model';
-import { Constants } from './../data/constants';
-import { Injectable } from '../../../node_modules/@angular/core';
+import { Register } from '../types/register.model';
+import { Constants } from '../data/constants';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class StateModule {
@@ -10,6 +10,7 @@ export class StateModule {
     private stepTime;
     private sortingAlgorithm;
     private Constants = Constants;
+    private status = status;
 
     constructor() {
     }
@@ -53,5 +54,12 @@ export class StateModule {
     }
     public setSortingAlgorithm(sortingAlgorithm: any): void {
         this.sortingAlgorithm = sortingAlgorithm;
+    }
+
+    public getStatus(): any {
+        return this.status;
+    }
+    public setStatus(status: any): void {
+        this.status = status;
     }
 }

@@ -1,3 +1,4 @@
+import { Clock } from './types/clock';
 import { MainModule } from './modules/mainModule';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ import { ControlModule } from './modules/controlModule';
   providers: [
     MainModule,
     StateModule,
-    ControlModule
+    ControlModule,
+    Clock
   ],
   bootstrap: [AppComponent]
 })
