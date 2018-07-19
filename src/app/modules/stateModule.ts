@@ -17,6 +17,7 @@ export class StateModule {
     init() {
         this.register = new Register();
         this.register.init(this.Constants.defaults.numCells);
+        console.log(this.register);
     }
 
     public getRegister(): any {

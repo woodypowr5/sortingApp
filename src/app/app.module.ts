@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StateModule } from './modules/stateModule';
+import { ControlModule } from './modules/controlModule';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { StateModule } from './modules/stateModule';
   ],
   providers: [
     MainModule,
-    StateModule
+    StateModule,
+    ControlModule
   ],
   bootstrap: [AppComponent]
 })

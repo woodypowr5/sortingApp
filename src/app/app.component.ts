@@ -1,3 +1,4 @@
+import { ControlModule } from './modules/controlModule';
 import { MainModule } from './modules/mainModule';
 import { Component } from '@angular/core';
 
@@ -9,5 +10,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private display: any;
 
-  constructor(private mainModule: MainModule) {}
+  constructor(private mainModule: MainModule, private controlModule: ControlModule) {}
+
+  run(): void {
+    this.controlModule.run();
+  }
+
+  pause(): void {
+    this.controlModule.pause();
+  }
+
+  stop(): void {
+    this.controlModule.stop();
+  }
 }
