@@ -1,24 +1,30 @@
-import { Clock } from '../types/clock';
+import { RenderModule } from './renderModule';
+import { SortingModule } from './sortingModule';
+import { Clock } from '../classes/clock';
 import { StateModule } from './stateModule';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Injectable()
 export class ControlModule implements OnDestroy {
-    private clockSubscriptions: Subscription;
+    private clockSubscription: Subscription;
 
-    constructor(private stateModule: StateModule, private clock: Clock) { }
+    constructor(
+        private stateModule: StateModule,
+        private sortingModule: SortingModule,
+        private renderModule: RenderModule,
+        private clock: Clock
+    ) { }
 
     init(): void {
         this.stateModule.init();
-        this.clockSubscriptions = this.clock.clockStream.subscribe(stream => {
+        this.clockSubscription = this.clock.clockStream.subscribe(stream => {
             this.handleNextTick();
         });
     }
 
     stop(): void {
         this.clock.stop();
-        console.log('stopped');
     }
 
     run(): void {
@@ -30,10 +36,15 @@ export class ControlModule implements OnDestroy {
     }
 
     private nextStep(): void {
-        console.log('next step');
+        this.sortingModule.doSort();
+        this.renderModule.renderStep();
+    }
+
+    private nextSubstep(): void {
+        console.log('next substep');
     }
 
     ngOnDestroy() {
-        this.clockSubscriptions.unsubscribe();
+        this.clockSubscription.unsubscribe();
     }
 }

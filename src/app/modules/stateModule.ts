@@ -1,65 +1,60 @@
-import { Register } from '../types/register.model';
+import { SubstepMetadata } from '../classes/substepMetadata';
+import { Register } from '../classes/register.model';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
+import * as easel from 'createjs-easeljs';
 
 @Injectable()
 export class StateModule {
-    private register: Register;
-    private stepNumber: number;
-    private substep;
-    private stepTime;
-    private sortingAlgorithm;
-    private Constants = Constants;
-    private status = status;
+    private registers: Register[] = [];
+    private substepMetadata: SubstepMetadata;
+    private stepTime = Constants.defaults.stepTime;
+    private sortingAlgorithm: string = Constants.defaults.sortingAlgorithm;
+    private status = 'stopped';
+    public stage: easel.Stage = new easel.Stage(Constants.canvas.id);
 
     constructor() {
     }
 
     init() {
-        this.register = new Register();
-        this.register.init(this.Constants.defaults.numCells);
-        console.log(this.register);
+        this.registers.push(new Register());
+        this.registers[0].init(Constants.defaults.numCells);
     }
 
-    public getRegister(): any {
-        return this.register;
+    public getRegisters(): any {
+        return this.registers;
     }
-    public setRegister(register: any): void {
-        this.register = register;
+    public setRegisters(registers: any): void {
+        this.registers = registers;
     }
-
-    public getStepNumber(): number {
-        return this.stepNumber;
-    }
-    public setStepNumber(stepNumber: number): void {
-        this.stepNumber = stepNumber;
-    }
-
     public getSubstep(): any {
-        return this.substep;
+        return this.substepMetadata;
     }
-    public setSubstep(substep: any): void {
-        this.substep = substep;
+    public setSubstep(substepMetadata: SubstepMetadata): void {
+        this.substepMetadata = substepMetadata;
     }
-
-    public getStepTime(): any {
+    public getStepTime(): number {
         return this.stepTime;
     }
     public setStepTime(stepTime: any): void {
         this.stepTime = stepTime;
     }
-
     public getSortingAlgorithm(): any {
         return this.sortingAlgorithm;
     }
     public setSortingAlgorithm(sortingAlgorithm: any): void {
         this.sortingAlgorithm = sortingAlgorithm;
     }
-
     public getStatus(): any {
         return this.status;
     }
     public setStatus(status: any): void {
         this.status = status;
+    }
+    public getStage(): easel.Stage {
+        return this.stage;
+    }
+    public setStage(newStage: easel.Stage): void {
+        this.stage = newStage;
     }
 }
