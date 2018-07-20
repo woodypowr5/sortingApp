@@ -1,5 +1,5 @@
 export class Register {
-    private state: number[];
+    state: number[];
 
     constructor() {
         this.state = [];

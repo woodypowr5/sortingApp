@@ -2,7 +2,7 @@ import { SubstepMetadata } from '../classes/substepMetadata';
 import { Register } from '../classes/register.model';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
-import * as easel from 'createjs-easeljs';
+import * as  createjs from 'createjs-module';
 
 @Injectable()
 export class StateModule {
@@ -11,12 +11,13 @@ export class StateModule {
     private stepTime = Constants.defaults.stepTime;
     private sortingAlgorithm: string = Constants.defaults.sortingAlgorithm;
     private status = 'stopped';
-    public stage: easel.Stage = new easel.Stage(Constants.canvas.id);
-
-    constructor() {
-    }
+    private registerLength = Constants.defaults.numCells;
+    private stage: createjs.Stage;
+    constructor() {}
 
     init() {
+        const canvas = document.getElementById(Constants.defaults.canvasId);
+        this.stage = new createjs.Stage(canvas);
         this.registers.push(new Register());
         this.registers[0].init(Constants.defaults.numCells);
     }
@@ -51,10 +52,16 @@ export class StateModule {
     public setStatus(status: any): void {
         this.status = status;
     }
-    public getStage(): easel.Stage {
+    public getRegisterLength(): number {
+        return this.registerLength;
+    }
+    public setRegisterLenght(newLength: number): void {
+        this.registerLength = newLength;
+    }
+    public getStage(): createjs.Stage {
         return this.stage;
     }
-    public setStage(newStage: easel.Stage): void {
+    public setStage(newStage: createjs.Stage): void {
         this.stage = newStage;
     }
 }
