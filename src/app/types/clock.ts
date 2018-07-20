@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { StateModule } from './../modules/stateModule';
-import { Subscription, BehaviorSubject } from '../../../node_modules/rxjs';
+import { StateModule } from '../modules/stateModule';
+import { Subscription, BehaviorSubject } from 'rxjs';
 import { Constants } from '../data/constants';
 
 @Injectable()
 export class Clock {
-    private clockStream: BehaviorSubject<void> = new BehaviorSubject(null);
+    public clockStream: BehaviorSubject<void> = new BehaviorSubject(null);
     private state = 'stopped';
 
     constructor(private stateModule: StateModule) {}
 
-    wait() {
+    private wait() {
         setTimeout(() => {
             this.nextTick();
         }, Constants.defaults.stepTime);
     }
 
-    nextTick(): void {
+    private nextTick(): void {
         console.log(this.stateModule.getStatus());
         if (this.stateModule.getStatus() === 'running') {
             this.clockStream.next(null);
@@ -37,9 +37,5 @@ export class Clock {
 
     resume() {
         this.stateModule.setStatus('running');
-    }
-
-    getClockStream() {
-        return this.clockStream;
     }
 }

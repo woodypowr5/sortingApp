@@ -16,10 +16,6 @@ export class AppComponent {
     this.controlModule.run();
   }
 
-  pause(): void {
-    this.controlModule.pause();
-  }
-
   stop(): void {
     this.controlModule.stop();
   }
