@@ -31,14 +31,23 @@ export class StateModule {
         const canvas = document.getElementById(Constants.defaults.canvasId);
         this.stage = new createjs.Stage(canvas);
         this.registers.push(new Register());
-        this.registers[0].init(Constants.defaults.numCells);
+        this.registers[0].init(this.registerLength);
         this.sortingAlgorithms.insertion = {
             name: 'insertionSort',
             sorter: this.sorterInsertion,
             substepSorter: null,
-            substepRenderer: null,
-            index: 0
+            substepRenderer: null
         };
+    }
+
+    public resetRegisters(): void {
+        const canvas = document.getElementById(Constants.defaults.canvasId);
+        this.stage = new createjs.Stage(canvas);
+        this.stage.update();
+        this.registers = [];
+        this.registers.push(new Register());
+        this.registers[0].init(this.registerLength);
+        this.sortingAlgorithms.insertion.sorter.setIndex(0);
     }
 
     public getRegisters(): any {

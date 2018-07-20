@@ -31,13 +31,22 @@ export class ControlModule implements OnDestroy {
         this.clock.startClockStream();
     }
 
+    reset(): void {
+        this.stateModule.resetRegisters();
+    }
+
     private handleNextTick(): void {
         this.nextStep();
     }
 
     private nextStep(): void {
-        this.sortingModule.doSort();
-        this.renderModule.renderStep();
+        const registers = this.stateModule.getRegisters();
+        if (registers[registers.length - 1].isSorted() === false) {
+            this.sortingModule.doSort();
+            this.renderModule.renderStep();
+        } else {
+            this.stop();
+        }
     }
 
     private nextSubstep(): void {

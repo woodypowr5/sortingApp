@@ -26,4 +26,8 @@ export class AppComponent implements AfterViewInit {
   stop(): void {
     this.controlModule.stop();
   }
+
+  reset(): void {
+    this.controlModule.reset();
+  }
 }

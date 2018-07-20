@@ -17,7 +17,6 @@ export class Clock {
     }
 
     private nextTick(): void {
-        console.log(this.stateModule.getStatus());
         if (this.stateModule.getStatus() === 'running') {
             this.clockStream.next(null);
             this.wait();

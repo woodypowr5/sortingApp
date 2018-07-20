@@ -11,7 +11,7 @@ export class SorterInsertion extends Sorter {
         super();
     }
 
-    public sort(register: Register): Register {
+    sort(register: Register): Register {
         if (this.index < register.state.length) {
             let j = this.index;
             while (j > 0 && register.state[j - 1] > register.state[j]) {
@@ -22,5 +22,9 @@ export class SorterInsertion extends Sorter {
            return register;
         }
         return register;
+    }
+
+    setIndex(newIndex: number): void  {
+        this.index = newIndex;
     }
 }

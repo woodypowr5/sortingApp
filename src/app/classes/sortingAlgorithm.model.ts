@@ -6,5 +6,4 @@ export interface SortingAlgorithm {
     sorter: Sorter;
     substepSorter: any;
     substepRenderer: SubstepRenderer;
-    index: number;
 }
