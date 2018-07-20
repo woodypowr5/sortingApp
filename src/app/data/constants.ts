@@ -1,7 +1,7 @@
 
 export const Constants = {
     defaults: {
-        sortingAlgorithm: 'selection',
+        sortingAlgorithm: 'insertion',
         numCells: 40,
         stepTime: 500,
         canvasWidth: 500,

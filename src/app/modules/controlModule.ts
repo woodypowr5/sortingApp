@@ -1,5 +1,5 @@
-import { RenderModule } from './renderModule';
 import { SortingModule } from './sortingModule';
+import { RenderModule } from './renderModule';
 import { Clock } from '../classes/clock';
 import { StateModule } from './stateModule';
 import { Injectable, OnDestroy } from '@angular/core';
@@ -11,8 +11,8 @@ export class ControlModule implements OnDestroy {
 
     constructor(
         private stateModule: StateModule,
-        private sortingModule: SortingModule,
         private renderModule: RenderModule,
+        private sortingModule: SortingModule,
         private clock: Clock
     ) { }
 

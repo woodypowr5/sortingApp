@@ -33,7 +33,7 @@ export class RenderModule {
         return container;
     }
 
-    setRowYPositions(stage: createjs.Stage): createjs.Stage {
+    private setRowYPositions(stage: createjs.Stage): createjs.Stage {
         const newStage = this.pruneRows(stage);
         const rowHeight = this.getCellWidth();
         for (let i = 0; i < newStage.children.length; i++) {
@@ -42,7 +42,7 @@ export class RenderModule {
         return newStage;
     }
 
-    pruneRows(stage: createjs.Stage): createjs.Stage {
+    private pruneRows(stage: createjs.Stage): createjs.Stage {
         const rows = stage.children;
         const numRows = stage.children.length;
         const maxRows = Math.floor(Constants.defaults.canvasHeight / this.getCellWidth());

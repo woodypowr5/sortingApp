@@ -1,8 +1,10 @@
-import { SubstepMetadata } from '../classes/substepMetadata';
 import { Register } from '../classes/register.model';
+import { SortingAlgorithm } from './../classes/sortingAlgorithm.model';
+import { SubstepMetadata } from '../classes/substepMetadata';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
 import * as  createjs from 'createjs-module';
+import { SorterInsertion } from '../classes/sorterInsertion';
 
 @Injectable()
 export class StateModule {
@@ -13,13 +15,30 @@ export class StateModule {
     private status = 'stopped';
     private registerLength = Constants.defaults.numCells;
     private stage: createjs.Stage;
-    constructor() {}
+    public sortingAlgorithms: {
+        insertion: SortingAlgorithm,
+        selection: SortingAlgorithm
+    } = {
+        insertion: null,
+        selection: null
+    };
+
+    constructor(
+        private sorterInsertion: SorterInsertion
+    ) {}
 
     init() {
         const canvas = document.getElementById(Constants.defaults.canvasId);
         this.stage = new createjs.Stage(canvas);
         this.registers.push(new Register());
         this.registers[0].init(Constants.defaults.numCells);
+        this.sortingAlgorithms.insertion = {
+            name: 'insertionSort',
+            sorter: this.sorterInsertion,
+            substepSorter: null,
+            substepRenderer: null,
+            index: 0
+        };
     }
 
     public getRegisters(): any {
