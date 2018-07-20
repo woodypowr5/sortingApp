@@ -1,3 +1,5 @@
+import { StateModule } from './modules/stateModule';
+import { SortingAlgorithm } from './classes/sortingAlgorithm.model';
 import { Constants } from './data/constants';
 import { ControlModule } from './modules/controlModule';
 import { Component, AfterViewInit } from '@angular/core';
@@ -11,8 +13,11 @@ export class AppComponent implements AfterViewInit {
   private display: any;
   private canvasWidth = Constants.defaults.canvasWidth;
   private canvasId = Constants.defaults.canvasId;
+  private sortingAlgorithms: SortingAlgorithm[] = [];
 
-  constructor(private controlModule: ControlModule) {}
+  constructor(private controlModule: ControlModule, private stateModule: StateModule) {
+    this.sortingAlgorithms = this.stateModule.sortingAlgorithms;
+  }
 
   ngAfterViewInit() {
     this.controlModule.init();

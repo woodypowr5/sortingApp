@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { StateModule } from './modules/stateModule';
 import { ControlModule } from './modules/controlModule';
 import { SorterInsertion } from './classes/sorterInsertion';
+import { SorterSelection } from './classes/sorterSelection';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SorterInsertion } from './classes/sorterInsertion';
     RenderModule,
     ColorModule,
     SorterInsertion,
+    SorterSelection,
     Clock
   ],
   bootstrap: [AppComponent]

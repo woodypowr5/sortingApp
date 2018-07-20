@@ -1,12 +1,9 @@
 import { Register } from './register.model';
-import { StateModule } from './../modules/stateModule';
 import { Sorter } from './sorter';
 import { Injectable } from '../../../node_modules/@angular/core';
 
 @Injectable()
 export class SorterInsertion extends Sorter {
-    index = 0;
-
     constructor() {
         super();
     }
@@ -22,9 +19,5 @@ export class SorterInsertion extends Sorter {
            return register;
         }
         return register;
-    }
-
-    setIndex(newIndex: number): void  {
-        this.index = newIndex;
     }
 }

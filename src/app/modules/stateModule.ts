@@ -1,3 +1,4 @@
+import { SorterSelection } from './../classes/sorterSelection';
 import { Register } from '../classes/register.model';
 import { SortingAlgorithm } from './../classes/sortingAlgorithm.model';
 import { SubstepMetadata } from '../classes/substepMetadata';
@@ -15,16 +16,11 @@ export class StateModule {
     private status = 'stopped';
     private registerLength = Constants.defaults.numCells;
     private stage: createjs.Stage;
-    public sortingAlgorithms: {
-        insertion: SortingAlgorithm,
-        selection: SortingAlgorithm
-    } = {
-        insertion: null,
-        selection: null
-    };
+    public sortingAlgorithms: SortingAlgorithm[] = [];
 
     constructor(
-        private sorterInsertion: SorterInsertion
+        private sorterInsertion: SorterInsertion,
+        private sorterSelection: SorterSelection
     ) {}
 
     init() {
@@ -32,12 +28,18 @@ export class StateModule {
         this.stage = new createjs.Stage(canvas);
         this.registers.push(new Register());
         this.registers[0].init(this.registerLength);
-        this.sortingAlgorithms.insertion = {
-            name: 'insertionSort',
+        this.sortingAlgorithms.push({
+            name: 'insertion',
             sorter: this.sorterInsertion,
             substepSorter: null,
             substepRenderer: null
-        };
+        });
+        this.sortingAlgorithms.push({
+            name: 'selection',
+            sorter: this.sorterSelection,
+            substepSorter: null,
+            substepRenderer: null
+        });
     }
 
     public resetRegisters(): void {
@@ -47,7 +49,9 @@ export class StateModule {
         this.registers = [];
         this.registers.push(new Register());
         this.registers[0].init(this.registerLength);
-        this.sortingAlgorithms.insertion.sorter.setIndex(0);
+        this.sortingAlgorithms.map(algorithm => {
+            algorithm.sorter.setIndex(0);
+        });
     }
 
     public getRegisters(): any {
