@@ -12,13 +12,19 @@ import { StateModule } from './modules/stateModule';
 import { ControlModule } from './modules/controlModule';
 import { SorterInsertion } from './classes/sorterInsertion';
 import { SorterBubble } from './classes/sorterBubble';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCardModule, MatButtonToggleModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    MatButtonModule,
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [
     StateModule,

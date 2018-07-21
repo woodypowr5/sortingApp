@@ -1,12 +1,12 @@
+import { Constants } from './../data/constants';
 import { Register } from './register.model';
 import { Sorter } from './sorter';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SorterComb extends Sorter {
-    private index = 10;
-    private swapped = false;
-    private gap = 10;
+    private index = Constants.defaults.numCells - 2;
+    private gap = Constants.defaults.numCells - 2;
 
     constructor() {
         super();
@@ -25,8 +25,7 @@ export class SorterComb extends Sorter {
     }
 
     resetState(): void {
-        this.index = 10;
-        this.gap = 10;
-        this.swapped = false;
+        this.index = Constants.defaults.numCells - 2;
+        this.gap = Constants.defaults.numCells -2  ;
     }
 }

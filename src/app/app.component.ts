@@ -21,6 +21,14 @@ export class AppComponent implements AfterViewInit {
     this.speeds = Constants.speeds;
   }
 
+  public get status(): string {
+    return this.stateModule.getStatus();
+  }
+
+  public get activeSortingAlgorithm(): string {
+    return this.stateModule.getSortingAlgorithm();
+  }
+
   ngAfterViewInit() {
     this.controlModule.init();
     this.controlModule.run();

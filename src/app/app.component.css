@@ -2,8 +2,12 @@
     width: 800px;
     height: 800px;
     border: 2px solid #999;
-    margin: 20px;
+    margin: 20px auto;
 }
 button{
     margin-left: 20px;
+    border: 1px solid #DDD;
+}
+mat-card{
+    margin-bottom: 10px;
 }

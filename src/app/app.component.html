@@ -1,42 +1,54 @@
-<div class="display-area">
+<mat-card class="display-area">
   <canvas id="{{ canvasId }}" width="{{ canvasWidth }}" height="{{ canvasWidth }}"></canvas>
-</div>
+</mat-card>
+<mat-card class="controls">
+  <mat-card class="main-controls">
+    
+    <button
+      mat-button
+      [disabled]="status === 'running'"
+      (click)="run()"
+    >
+      Go
+    </button>
+  
+    <button
+      mat-button
+      [disabled]="status === 'stopped'"
+      (click)="stop()"
+    >
+      Stop
+    </button>
+  
+    <button
+      mat-button
+      (click)="reset()"
+    >
+      Reset
+    </button>
+  </mat-card>
+{{activeSortingAlogrithm}}
+  <mat-card class="algorithm-controls">
+      <mat-card-title>Sorting Algorithm:</mat-card-title>
+    <button
+      mat-button
+      *ngFor="let sortingAlgorithm of sortingAlgorithms"
+      [disabled]="activeSortingAlgorithm === sortingAlgorithm.name"
+      (click)="setSortingAlgorithm(sortingAlgorithm)"
+    >
+      {{ sortingAlgorithm.name }}
+    </button>
+  </mat-card>
 
-<button
-  (click)="run()"
->
-  Go
-</button>
+  <mat-card class="speed-controls">
+      <mat-card-title>Speed:</mat-card-title>
+    <button
+      mat-button
+      *ngFor="let speed of speeds"
+      (click)="setSpeed(speed)"
+    >
+      {{ speed.name }}
+    </button>
+  </mat-card>
 
-<button
-  (click)="stop()"
->
-  Stop
-</button>
-
-<button
-  (click)="reset()"
->
-  Reset
-</button>
-
-<br>
-
-Sorting Algorithm:
-<br><br>
-<button
-  *ngFor="let sortingAlgorithm of sortingAlgorithms"
-  (click)="setSortingAlgorithm(sortingAlgorithm)"
->
-  {{ sortingAlgorithm.name }}
-</button>
-<br><br>
-
-Speed:
-<br><br>
-<button
-  *ngFor="let speed of speeds"
-  (click)="setSpeed(speed)"
->
-  {{ speed.name }}
-</button>
+</mat-card>
