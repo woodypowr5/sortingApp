@@ -1,7 +1,7 @@
 
 export const Constants = {
     defaults: {
-        sortingAlgorithm: 'bubble',
+        sortingAlgorithm: 'selection',
         numCells: 40,
         stepTime: 100,
         canvasWidth: 800,

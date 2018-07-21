@@ -1,3 +1,6 @@
+import { SorterComb } from './../classes/sorterComb';
+import { SorterShell } from './../classes/sorterShell';
+import { SorterSelection } from './../classes/sorterSelection';
 import { SorterBubble } from '../classes/sorterBubble';
 import { Register } from '../classes/register.model';
 import { SortingAlgorithm } from '../classes/sortingAlgorithm.model';
@@ -20,7 +23,10 @@ export class StateModule {
 
     constructor(
         private sorterInsertion: SorterInsertion,
-        private sorterBubble: SorterBubble
+        private sorterBubble: SorterBubble,
+        private sorterSelection: SorterSelection,
+        private sorterShell: SorterShell,
+        private sorterComb: SorterComb
     ) {}
 
     init() {
@@ -37,6 +43,24 @@ export class StateModule {
         this.sortingAlgorithms.push({
             name: 'bubble',
             sorter: this.sorterBubble,
+            substepSorter: null,
+            substepRenderer: null
+        });
+        this.sortingAlgorithms.push({
+            name: 'selection',
+            sorter: this.sorterSelection,
+            substepSorter: null,
+            substepRenderer: null
+        });
+        this.sortingAlgorithms.push({
+            name: 'shell',
+            sorter: this.sorterShell,
+            substepSorter: null,
+            substepRenderer: null
+        });
+        this.sortingAlgorithms.push({
+            name: 'comb',
+            sorter: this.sorterComb,
             substepSorter: null,
             substepRenderer: null
         });
