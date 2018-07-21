@@ -29,4 +29,13 @@ Sorting Algorithm:
 >
   {{ sortingAlgorithm.name }}
 </button>
+<br><br>
 
+Speed:
+<br><br>
+<button
+  *ngFor="let speed of speeds"
+  (click)="setSpeed(speed)"
+>
+  {{ speed.name }}
+</button>

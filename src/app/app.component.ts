@@ -11,12 +11,14 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 export class AppComponent implements AfterViewInit {
   private display: any;
+  private speeds: any[] = [];
   private canvasWidth = Constants.defaults.canvasWidth;
   private canvasId = Constants.defaults.canvasId;
   private sortingAlgorithms: SortingAlgorithm[] = [];
 
   constructor(private controlModule: ControlModule, private stateModule: StateModule) {
     this.sortingAlgorithms = this.stateModule.sortingAlgorithms;
+    this.speeds = Constants.speeds;
   }
 
   ngAfterViewInit() {
@@ -34,5 +36,9 @@ export class AppComponent implements AfterViewInit {
 
   reset(): void {
     this.controlModule.reset();
+  }
+
+  setSpeed(speed: {name: string, stepTime: number}): void {
+    this.controlModule.setStepTime(speed.stepTime);
   }
 }

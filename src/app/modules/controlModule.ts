@@ -35,6 +35,10 @@ export class ControlModule implements OnDestroy {
         this.stateModule.resetRegisters();
     }
 
+    setStepTime(stepTime: number): void {
+        this.stateModule.setStepTime(stepTime);
+    }
+
     private handleNextTick(): void {
         this.nextStep();
     }
