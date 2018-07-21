@@ -26,6 +26,6 @@ export class SorterComb extends Sorter {
 
     resetState(): void {
         this.index = Constants.defaults.numCells - 2;
-        this.gap = Constants.defaults.numCells -2  ;
+        this.gap = Constants.defaults.numCells - 2;
     }
 }

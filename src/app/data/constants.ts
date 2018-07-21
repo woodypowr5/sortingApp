@@ -2,11 +2,11 @@
 export const Constants = {
     defaults: {
         sortingAlgorithm: 'selection',
-        numCells: 80,
+        numCells: 50,
         stepTime: 100,
         canvasWidth: 800,
         canvasHeight: 800,
-        colors: 'grayscale',
+        colors: 'color',
         canvasId: 'demoCanvas'
     },
     speeds: [
