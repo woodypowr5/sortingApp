@@ -26,6 +26,7 @@ Sorting Algorithm:
 <br><br>
 <button
   *ngFor="let sortingAlgorithm of sortingAlgorithms"
+  (click)="setSortingAlgorithm(sortingAlgorithm)"
 >
   {{ sortingAlgorithm.name }}
 </button>

@@ -13,7 +13,7 @@ export class Clock {
     private wait() {
         setTimeout(() => {
             this.nextTick();
-        }, this.stateModule.stepTime);
+        }, this.stateModule.getStepTime());
     }
 
     private nextTick(): void {

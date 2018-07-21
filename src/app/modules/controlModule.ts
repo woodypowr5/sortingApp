@@ -1,3 +1,4 @@
+import { SortingAlgorithm } from './../classes/sortingAlgorithm.model';
 import { SortingModule } from './sortingModule';
 import { RenderModule } from './renderModule';
 import { Clock } from '../classes/clock';
@@ -37,6 +38,10 @@ export class ControlModule implements OnDestroy {
 
     setStepTime(stepTime: number): void {
         this.stateModule.setStepTime(stepTime);
+    }
+
+    setSortingAlgorithm(sortingAlgorithm: SortingAlgorithm): void {
+        this.stateModule.setSortingAlgorithm(sortingAlgorithm.name);
     }
 
     private handleNextTick(): void {

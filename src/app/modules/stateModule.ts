@@ -54,46 +54,49 @@ export class StateModule {
         });
     }
 
-    public getRegisters(): any {
+    getRegisters(): any {
         return this.registers;
     }
-    public setRegisters(registers: any): void {
+    setRegisters(registers: any): void {
         this.registers = registers;
     }
-    public getSubstep(): any {
+    getSubstep(): any {
         return this.substepMetadata;
     }
-    public setSubstep(substepMetadata: SubstepMetadata): void {
+    setSubstep(substepMetadata: SubstepMetadata): void {
         this.substepMetadata = substepMetadata;
     }
-    public getStepTime(): number {
+    getStepTime(): number {
         return this.stepTime;
     }
-    public setStepTime(stepTime: any): void {
+    setStepTime(stepTime: any): void {
         this.stepTime = stepTime;
     }
-    public getSortingAlgorithm(): any {
+    getSortingAlgorithm(): any {
         return this.sortingAlgorithm;
     }
-    public setSortingAlgorithm(sortingAlgorithm: any): void {
+    setSortingAlgorithm(sortingAlgorithm: string): void {
         this.sortingAlgorithm = sortingAlgorithm;
+        this.sortingAlgorithms.map(algorithm => {
+            algorithm.sorter.resetState();
+        });
     }
-    public getStatus(): any {
+    getStatus(): any {
         return this.status;
     }
-    public setStatus(status: any): void {
+    setStatus(status: any): void {
         this.status = status;
     }
-    public getRegisterLength(): number {
+    getRegisterLength(): number {
         return this.registerLength;
     }
-    public setRegisterLenght(newLength: number): void {
+    setRegisterLenght(newLength: number): void {
         this.registerLength = newLength;
     }
-    public getStage(): createjs.Stage {
+    getStage(): createjs.Stage {
         return this.stage;
     }
-    public setStage(newStage: createjs.Stage): void {
+    setStage(newStage: createjs.Stage): void {
         this.stage = newStage;
     }
 }

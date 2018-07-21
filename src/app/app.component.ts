@@ -41,4 +41,8 @@ export class AppComponent implements AfterViewInit {
   setSpeed(speed: {name: string, stepTime: number}): void {
     this.controlModule.setStepTime(speed.stepTime);
   }
+
+  setSortingAlgorithm(sortingAlgorithm: SortingAlgorithm): void {
+    this.controlModule.setSortingAlgorithm(sortingAlgorithm);
+  }
 }
