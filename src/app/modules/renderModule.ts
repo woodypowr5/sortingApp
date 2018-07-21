@@ -1,7 +1,7 @@
-import { Register } from './../classes/register.model';
+import { Register } from '../classes/register.model';
 import { ColorModule } from './colorModule';
 import { StateModule } from './stateModule';
-import { Constants } from './../data/constants';
+import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
 import * as  createjs from 'createjs-module';
 

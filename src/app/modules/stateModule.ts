@@ -1,6 +1,6 @@
-import { SorterSelection } from './../classes/sorterSelection';
+import { SorterBubble } from '../classes/sorterBubble';
 import { Register } from '../classes/register.model';
-import { SortingAlgorithm } from './../classes/sortingAlgorithm.model';
+import { SortingAlgorithm } from '../classes/sortingAlgorithm.model';
 import { SubstepMetadata } from '../classes/substepMetadata';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
@@ -20,7 +20,7 @@ export class StateModule {
 
     constructor(
         private sorterInsertion: SorterInsertion,
-        private sorterSelection: SorterSelection
+        private sorterBubble: SorterBubble
     ) {}
 
     init() {
@@ -35,8 +35,8 @@ export class StateModule {
             substepRenderer: null
         });
         this.sortingAlgorithms.push({
-            name: 'selection',
-            sorter: this.sorterSelection,
+            name: 'bubble',
+            sorter: this.sorterBubble,
             substepSorter: null,
             substepRenderer: null
         });
@@ -50,7 +50,7 @@ export class StateModule {
         this.registers.push(new Register());
         this.registers[0].init(this.registerLength);
         this.sortingAlgorithms.map(algorithm => {
-            algorithm.sorter.setIndex(0);
+            algorithm.sorter.resetState();
         });
     }
 

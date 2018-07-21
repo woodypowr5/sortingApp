@@ -3,27 +3,27 @@ import { Sorter } from './sorter';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class SorterInsertion extends Sorter {
+export class SorterBubble extends Sorter {
     private index = 0;
+    private swapped = false;
 
     constructor() {
         super();
     }
 
     sort(register: Register): Register {
-        if (this.index < register.state.length) {
-            let j = this.index;
-            while (j > 0 && register.state[j - 1] > register.state[j]) {
-                register.swap(j, j - 1);
-                j--;
-            }
-            this.index++;
-           return register;
+        if (this.index === register.state.length) {
+            this.index = 1;
         }
+        if (register.state[this.index - 1] > register.state[this.index]) {
+            register.swap(this.index, this.index - 1);
+        }
+        this.index++;
         return register;
     }
 
     resetState(): void {
         this.index = 0;
+        this.swapped = false;
     }
 }
