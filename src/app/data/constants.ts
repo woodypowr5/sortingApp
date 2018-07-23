@@ -2,7 +2,7 @@
 export const Constants = {
     defaults: {
         sortingAlgorithm: 'selection',
-        numCells: 50,
+        numCells: 75,
         stepTime: 100,
         canvasWidth: 800,
         canvasHeight: 800,
@@ -32,7 +32,7 @@ export const Constants = {
         },
         {
             name: 'lightning',
-            stepTime: 5
+            stepTime: 2
         }
     ]
 };

@@ -12,6 +12,7 @@ export class SortingModule {
         );
         const registers = this.stateModule.getRegisters();
         const newRegister = sortingAlgorithm[0].sorter.sort(registers[registers.length - 1]);
+
         registers.push(newRegister);
         this.stateModule.setRegisters(registers);
     }

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
     constructor() {}
 
     getCellColor(cellValue) {
+        let r, g, b;
         if (Constants.defaults.colors === 'grayscale') {
             return 'rgb('
                 + Math.floor(255 * cellValue)
@@ -16,7 +17,6 @@ import { Injectable } from '@angular/core';
                 + Math.floor(255 * cellValue)
                 + ')';
         } else if (Constants.defaults.colors === 'color') {
-            let r, g, b;
             if (cellValue >= 0 && cellValue < 0.333 ) {
                 r = 0;
                 g = (Math.floor((cellValue * 3)  * 255)).toString(16);
@@ -34,9 +34,9 @@ import { Injectable } from '@angular/core';
                 }
                 return '#00FF' + b;
             } else {
+                r = (Math.floor(((cellValue - 0.666) * 3) * 255)).toString(16);
                 b = 0;
                 g = 255;
-                r = (Math.floor(((cellValue - 0.666) * 3) * 255)).toString(16);
                 if (r.toString().length === 1) {
                     r = '0' + r;
                 }

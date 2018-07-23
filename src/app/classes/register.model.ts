@@ -5,7 +5,7 @@ export class Register {
         this.state = [];
     }
 
-    init(size: number) {
+    init(size: number): void {
         for (let i = 0; i < size; i++) {
             if (this.state) {
                 this.state.push(Math.random());
@@ -40,7 +40,7 @@ export class Register {
         return this.state;
     }
 
-    setState(newState: number[]) {
+    setState(newState: number[]): void {
         this.state = newState;
     }
 }

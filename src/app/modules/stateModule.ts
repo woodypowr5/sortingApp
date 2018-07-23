@@ -19,7 +19,7 @@ export class StateModule {
     private status = 'stopped';
     private registerLength = Constants.defaults.numCells;
     private stage: createjs.Stage;
-    public sortingAlgorithms: SortingAlgorithm[] = [];
+    sortingAlgorithms: SortingAlgorithm[] = [];
 
     constructor(
         private sorterInsertion: SorterInsertion,
@@ -53,20 +53,20 @@ export class StateModule {
             substepRenderer: null
         });
         this.sortingAlgorithms.push({
-            name: 'shell',
-            sorter: this.sorterShell,
-            substepSorter: null,
-            substepRenderer: null
-        });
-        this.sortingAlgorithms.push({
             name: 'comb',
             sorter: this.sorterComb,
             substepSorter: null,
             substepRenderer: null
         });
+        // this.sortingAlgorithms.push({
+        //     name: 'shell',
+        //     sorter: this.sorterShell,
+        //     substepSorter: null,
+        //     substepRenderer: null
+        // });
     }
 
-    public resetRegisters(): void {
+    resetRegisters(): void {
         const canvas = document.getElementById(Constants.defaults.canvasId);
         this.stage = new createjs.Stage(canvas);
         this.stage.update();

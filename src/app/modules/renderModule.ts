@@ -10,8 +10,8 @@ export class RenderModule {
 
     constructor(private stateModule: StateModule, private colorModule: ColorModule) {}
 
-    public renderStep() {
-        const stage = this.stateModule.getStage();
+    renderStep() {
+        const stage: createjs.Stage = this.stateModule.getStage();
         const registers = this.stateModule.getRegisters();
         const newRow: createjs.Container = this.createRow(registers[registers.length - 1]);
         stage.addChild(newRow);
@@ -21,10 +21,11 @@ export class RenderModule {
     }
 
     private createRow(register: Register): createjs.Container {
-        const container = new createjs.Container();
-        container.y = 0;
         let cellWidth, cellHeight;
+        const container = new createjs.Container();
         const row = [];
+
+        container.y = 0;
         for (let i = 0; i < register.state.length; i++) {
             cellWidth = this.getCellWidth();
             cellHeight = cellWidth;
@@ -36,6 +37,7 @@ export class RenderModule {
     private setRowYPositions(stage: createjs.Stage): createjs.Stage {
         const newStage = this.pruneRows(stage);
         const rowHeight = this.getCellWidth();
+
         for (let i = 0; i < newStage.children.length; i++) {
             newStage.children[i].y = i * rowHeight;
         }
@@ -46,6 +48,7 @@ export class RenderModule {
         const rows = stage.children;
         const numRows = stage.children.length;
         const maxRows = Math.floor(Constants.defaults.canvasHeight / this.getCellWidth());
+
         if (numRows > maxRows) {
             stage.children.shift();
         }
@@ -55,6 +58,7 @@ export class RenderModule {
     private createCell(cellValue, cellWidth, cellHeight, index) {
         const square = new createjs.Shape();
         const color = this.colorModule.getCellColor(cellValue);
+
         square.graphics.beginFill(color).drawRect(index * cellWidth, 0, cellWidth, cellHeight);
         return square;
     }

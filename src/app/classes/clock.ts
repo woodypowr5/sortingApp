@@ -10,19 +10,6 @@ export class Clock {
 
     constructor(private stateModule: StateModule) {}
 
-    private wait(): void {
-        setTimeout(() => {
-            this.nextTick();
-        }, this.stateModule.getStepTime());
-    }
-
-    private nextTick(): void {
-        if (this.stateModule.getStatus() === 'running') {
-            this.clockStream.next(null);
-            this.wait();
-        }
-    }
-
     startClockStream(): void {
         this.stateModule.setStatus('running');
         if (this.stateModule.getStatus() !== 'exitProgram') {
@@ -36,5 +23,18 @@ export class Clock {
 
     resume(): void {
         this.stateModule.setStatus('running');
+    }
+
+    private wait(): void {
+        setTimeout(() => {
+            this.nextTick();
+        }, this.stateModule.getStepTime());
+    }
+
+    private nextTick(): void {
+        if (this.stateModule.getStatus() === 'running') {
+            this.clockStream.next(null);
+            this.wait();
+        }
     }
 }
