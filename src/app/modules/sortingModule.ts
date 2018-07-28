@@ -11,9 +11,13 @@ export class SortingModule {
             algorithm => algorithm.name === this.stateModule.getSortingAlgorithm()
         );
         const registers = this.stateModule.getRegisters();
-        const newRegister = sortingAlgorithm[0].sorter.sort(registers[registers.length - 1]);
+        const currentRegister = registers[registers.length - 1];
+        if (this.stateModule.getShowSubsteps() === true && currentRegister.isSorted() === false) {
+            sortingAlgorithm[0].substepSorter.sort(currentRegister);
+        }
+        const nextRegister = sortingAlgorithm[0].sorter.sort(currentRegister);
 
-        registers.push(newRegister);
+        registers.push(nextRegister);
         this.stateModule.setRegisters(registers);
     }
 }

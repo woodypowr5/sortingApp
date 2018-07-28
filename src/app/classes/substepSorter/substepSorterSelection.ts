@@ -7,7 +7,9 @@ export class SubstepSorterSelection extends SubstepSorter {
         super();
     }
 
-    public sortSubstep(metadata: SubstepMetadata) {
+    public sort(metadata: SubstepMetadata) {
 
     }
+
+
 }

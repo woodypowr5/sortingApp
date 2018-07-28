@@ -9,6 +9,7 @@ import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
 import * as  createjs from 'createjs-module';
 import { SorterInsertion } from '../classes/sorter/sorterInsertion';
+import { SubstepSorterSelection } from '../classes/substepSorter/substepSorterSelection';
 
 @Injectable()
 export class StateModule {
@@ -17,6 +18,7 @@ export class StateModule {
     private stepTime = Constants.defaults.stepTime;
     private sortingAlgorithm: string = Constants.defaults.sortingAlgorithm;
     private status = 'stopped';
+    private showSubsteps = Constants.defaults.showSubsteps;
     private registerLength = Constants.defaults.numCells;
     private stage: createjs.Stage;
     sortingAlgorithms: SortingAlgorithm[] = [];
@@ -26,7 +28,8 @@ export class StateModule {
         private sorterBubble: SorterBubble,
         private sorterSelection: SorterSelection,
         private sorterShell: SorterShell,
-        private sorterComb: SorterComb
+        private sorterComb: SorterComb,
+        private substepSorterSelection: SubstepSorterSelection
     ) {}
 
     init() {
@@ -49,7 +52,7 @@ export class StateModule {
         this.sortingAlgorithms.push({
             name: 'selection',
             sorter: this.sorterSelection,
-            substepSorter: null,
+            substepSorter: this.substepSorterSelection,
             substepRenderer: null
         });
         this.sortingAlgorithms.push({
@@ -58,12 +61,6 @@ export class StateModule {
             substepSorter: null,
             substepRenderer: null
         });
-        // this.sortingAlgorithms.push({
-        //     name: 'shell',
-        //     sorter: this.sorterShell,
-        //     substepSorter: null,
-        //     substepRenderer: null
-        // });
     }
 
     resetRegisters(): void {
@@ -122,5 +119,13 @@ export class StateModule {
     }
     setStage(newStage: createjs.Stage): void {
         this.stage = newStage;
+    }
+
+    getShowSubsteps(): boolean {
+        return this.showSubsteps;
+    }
+
+    setShowSubsteps(newValue: boolean): void {
+        this.showSubsteps = newValue;
     }
 }

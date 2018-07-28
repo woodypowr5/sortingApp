@@ -3,5 +3,5 @@ export abstract class SubstepSorter {
 
     constructor() {}
 
-    public abstract sortSubstep(metadata: SubstepMetadata);
+    public abstract sort(metadata: SubstepMetadata);
 }
