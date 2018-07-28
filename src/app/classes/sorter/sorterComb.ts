@@ -1,5 +1,5 @@
-import { Constants } from './../data/constants';
-import { Register } from './register.model';
+import { Constants } from '../../data/constants';
+import { Register } from '../../interfaces/register.model';
 import { Sorter } from './sorter';
 import { Injectable } from '@angular/core';
 

@@ -1,5 +1,5 @@
-import { SubstepRenderer } from './substepRenderer';
-import { Sorter } from './sorter';
+import { SubstepRenderer } from '../classes/substepRenderer/substepRenderer';
+import { Sorter } from '../classes/sorter/sorter';
 
 export interface SortingAlgorithm {
     name: string;

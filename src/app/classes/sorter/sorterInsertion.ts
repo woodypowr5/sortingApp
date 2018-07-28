@@ -1,4 +1,4 @@
-import { Register } from './register.model';
+import { Register } from '../../interfaces/register.model';
 import { Sorter } from './sorter';
 import { Injectable } from '@angular/core';
 

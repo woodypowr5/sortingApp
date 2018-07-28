@@ -1,7 +1,7 @@
-import { SubstepMetadata } from './substepMetadata';
+import { SubstepMetadata } from '../substepMetadata';
 import { SubstepSorter } from './susbtepSorter';
 
-export class SubstepSorterSelection extends SubstepSorter {
+export class SubstepSorterInsertion extends SubstepSorter {
 
     constructor() {
         super();

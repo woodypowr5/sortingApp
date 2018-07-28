@@ -1,7 +1,7 @@
-import { SubstepMetadata } from './substepMetadata';
+import { SubstepMetadata } from '../substepMetadata';
 import { SubstepRenderer } from './substepRenderer';
 
-export class SubstepRendererInsertion extends SubstepRenderer {
+export class SubstepRendererSelection extends SubstepRenderer {
 
     constructor() {
         super();

@@ -1,4 +1,4 @@
-import { SortingAlgorithm } from './../classes/sortingAlgorithm.model';
+import { SortingAlgorithm } from './../interfaces/sortingAlgorithm.model';
 import { SortingModule } from './sortingModule';
 import { RenderModule } from './renderModule';
 import { Clock } from '../classes/clock';

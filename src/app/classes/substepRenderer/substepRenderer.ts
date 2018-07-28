@@ -1,4 +1,4 @@
-import { SubstepMetadata } from './substepMetadata';
+import { SubstepMetadata } from '../substepMetadata';
 export abstract class SubstepRenderer {
 
     constructor() {}

@@ -1,14 +1,14 @@
-import { SorterComb } from './../classes/sorterComb';
-import { SorterShell } from './../classes/sorterShell';
-import { SorterSelection } from './../classes/sorterSelection';
-import { SorterBubble } from '../classes/sorterBubble';
-import { Register } from '../classes/register.model';
-import { SortingAlgorithm } from '../classes/sortingAlgorithm.model';
+import { SorterComb } from './../classes/sorter/sorterComb';
+import { SorterShell } from './../classes/sorter/sorterShell';
+import { SorterSelection } from './../classes/sorter/sorterSelection';
+import { SorterBubble } from '../classes/sorter/sorterBubble';
+import { Register } from '../interfaces/register.model';
+import { SortingAlgorithm } from '../interfaces/sortingAlgorithm.model';
 import { SubstepMetadata } from '../classes/substepMetadata';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
 import * as  createjs from 'createjs-module';
-import { SorterInsertion } from '../classes/sorterInsertion';
+import { SorterInsertion } from '../classes/sorter/sorterInsertion';
 
 @Injectable()
 export class StateModule {
