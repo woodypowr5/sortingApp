@@ -6,7 +6,7 @@ export class SortingModule {
 
     constructor(private stateModule: StateModule) {}
 
-    doSort() {
+    doSort(): boolean {
         const sortingAlgorithm = this.stateModule.sortingAlgorithms.filter(
             algorithm => algorithm.name === this.stateModule.getSortingAlgorithm()
         );
@@ -18,9 +18,11 @@ export class SortingModule {
 
         registers.push(nextRegister);
         this.stateModule.setRegisters(registers);
+        return true;
     }
 
     doSubstep(): boolean {
+        console.log("substep");
         return false;
     }
 }

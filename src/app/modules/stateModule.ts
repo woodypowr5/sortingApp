@@ -4,7 +4,6 @@ import { SorterSelection } from './../classes/sorter/sorterSelection';
 import { SorterBubble } from '../classes/sorter/sorterBubble';
 import { Register } from '../interfaces/register.model';
 import { SortingAlgorithm } from '../interfaces/sortingAlgorithm.model';
-import { SubstepMetadata } from '../classes/substepMetadata';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
 import * as  createjs from 'createjs-module';
@@ -14,7 +13,6 @@ import { SubstepSorterSelection } from '../classes/substepSorter/substepSorterSe
 @Injectable()
 export class StateModule {
     private registers: Register[] = [];
-    private substepMetadata: SubstepMetadata;
     private stepTime = Constants.defaults.stepTime;
     private sortingAlgorithm: string = Constants.defaults.sortingAlgorithm;
     private status = 'stopped';
@@ -80,12 +78,6 @@ export class StateModule {
     }
     setRegisters(registers: any): void {
         this.registers = registers;
-    }
-    getSubstep(): any {
-        return this.substepMetadata;
-    }
-    setSubstep(substepMetadata: SubstepMetadata): void {
-        this.substepMetadata = substepMetadata;
     }
     getStepTime(): number {
         return this.stepTime;

@@ -1,4 +1,3 @@
-import { SubstepMetadata } from '../substepMetadata';
 import { Register } from '../../types/register.model';
 export abstract class SubstepSorter {
 

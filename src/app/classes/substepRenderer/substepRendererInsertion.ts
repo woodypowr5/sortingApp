@@ -1,4 +1,3 @@
-import { SubstepMetadata } from '../substepMetadata';
 import { SubstepRenderer } from './substepRenderer';
 
 export class SubstepRendererInsertion extends SubstepRenderer {
@@ -7,7 +6,7 @@ export class SubstepRendererInsertion extends SubstepRenderer {
         super();
     }
 
-    public renderSubstep(metadata: SubstepMetadata) {
+    public renderSubstep(metadata: any) {
 
     }
 }

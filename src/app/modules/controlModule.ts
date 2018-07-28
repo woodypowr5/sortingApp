@@ -51,17 +51,13 @@ export class ControlModule implements OnDestroy {
             if (this.substepsActive === true) {
                 this.substepsActive = this.sortingModule.doSubstep();
             } else {
-                this.sortingModule.doSort();
+                this.substepsActive = this.sortingModule.doSort();
                 this.renderModule.renderStep();
             }
             
         } else {
             this.stop();
         }
-    }
-
-    private nextSubstep(): void {
-        console.log('next substep');
     }
 
     ngOnDestroy() {
