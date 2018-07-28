@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 @Injectable()
 export class ControlModule implements OnDestroy {
     private clockSubscription: Subscription;
+    private substepsActive: boolean = false;
 
     constructor(
         private stateModule: StateModule,
@@ -45,14 +46,15 @@ export class ControlModule implements OnDestroy {
     }
 
     private handleNextTick(): void {
-        this.nextStep();
-    }
-
-    private nextStep(): void {
         const registers = this.stateModule.getRegisters();
         if (registers[registers.length - 1].isSorted() === false) {
-            this.sortingModule.doSort();
-            this.renderModule.renderStep();
+            if (this.substepsActive === true) {
+                this.substepsActive = this.sortingModule.doSubstep();
+            } else {
+                this.sortingModule.doSort();
+                this.renderModule.renderStep();
+            }
+            
         } else {
             this.stop();
         }

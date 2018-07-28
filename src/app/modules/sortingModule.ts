@@ -12,13 +12,16 @@ export class SortingModule {
         );
         const registers = this.stateModule.getRegisters();
         const currentRegister = registers[registers.length - 1];
-        if (this.stateModule.getShowSubsteps() === true && currentRegister.isSorted() === false) {
-            sortingAlgorithm[0].substepSorter.sort(currentRegister);
-        }
+        sortingAlgorithm[0].substepSorter.sort(currentRegister);
+        
         const nextRegister = sortingAlgorithm[0].sorter.sort(currentRegister);
 
         registers.push(nextRegister);
         this.stateModule.setRegisters(registers);
+    }
+
+    doSubstep(): boolean {
+        return false;
     }
 }
 

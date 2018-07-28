@@ -1,5 +1,6 @@
 import { SubstepMetadata } from '../substepMetadata';
 import { SubstepSorter } from './susbtepSorter';
+import { Register } from '../../types/register.model';
 
 export class SubstepSorterSelection extends SubstepSorter {
 
@@ -7,8 +8,8 @@ export class SubstepSorterSelection extends SubstepSorter {
         super();
     }
 
-    public sort(metadata: SubstepMetadata) {
-
+    public sort(register: Register) {
+        console.log(register)
     }
 
 

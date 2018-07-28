@@ -1,7 +1,8 @@
 import { SubstepMetadata } from '../substepMetadata';
+import { Register } from '../../types/register.model';
 export abstract class SubstepSorter {
 
     constructor() {}
 
-    public abstract sort(metadata: SubstepMetadata);
+    public abstract sort(register: Register);
 }

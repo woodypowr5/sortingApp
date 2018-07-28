@@ -1,13 +1,13 @@
-import { SubstepMetadata } from '../substepMetadata';
-import { SubstepSorter } from './susbtepSorter';
+// import { SubstepMetadata } from '../substepMetadata';
+// import { SubstepSorter } from './susbtepSorter';
 
-export class SubstepSorterInsertion extends SubstepSorter {
+// export class SubstepSorterInsertion extends SubstepSorter {
 
-    constructor() {
-        super();
-    }
+//     constructor() {
+//         super();
+//     }
 
-    public sort(metadata: SubstepMetadata) {
+//     public sort(metadata: SubstepMetadata) {
 
-    }
-}
+//     }
+// }
