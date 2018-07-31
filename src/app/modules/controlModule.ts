@@ -1,4 +1,4 @@
-import { SortingAlgorithm } from './../interfaces/sortingAlgorithm.model';
+import { SortingAlgorithm } from './../types/sortingAlgorithm.model';
 import { SortingModule } from './sortingModule';
 import { RenderModule } from './renderModule';
 import { Clock } from '../classes/clock';
@@ -9,7 +9,6 @@ import { Subscription } from 'rxjs';
 @Injectable()
 export class ControlModule implements OnDestroy {
     private clockSubscription: Subscription;
-    private substepsActive: boolean = false;
 
     constructor(
         private stateModule: StateModule,
@@ -48,13 +47,8 @@ export class ControlModule implements OnDestroy {
     private handleNextTick(): void {
         const registers = this.stateModule.getRegisters();
         if (registers[registers.length - 1].isSorted() === false) {
-            if (this.substepsActive === true) {
-                this.substepsActive = this.sortingModule.doSubstep();
-            } else {
-                this.substepsActive = this.sortingModule.doSort();
-                this.renderModule.renderStep();
-            }
-            
+            this.sortingModule.doSort();
+            this.renderModule.renderStep();
         } else {
             this.stop();
         }

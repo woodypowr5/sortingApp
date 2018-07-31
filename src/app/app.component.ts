@@ -1,5 +1,5 @@
 import { StateModule } from './modules/stateModule';
-import { SortingAlgorithm } from './interfaces/sortingAlgorithm.model';
+import { SortingAlgorithm } from './types/sortingAlgorithm.model';
 import { Constants } from './data/constants';
 import { ControlModule } from './modules/controlModule';
 import { Component, AfterViewInit } from '@angular/core';

@@ -2,8 +2,8 @@ import { SorterComb } from './../classes/sorter/sorterComb';
 import { SorterShell } from './../classes/sorter/sorterShell';
 import { SorterSelection } from './../classes/sorter/sorterSelection';
 import { SorterBubble } from '../classes/sorter/sorterBubble';
-import { Register } from '../interfaces/register.model';
-import { SortingAlgorithm } from '../interfaces/sortingAlgorithm.model';
+import { Register } from '../types/register.model';
+import { SortingAlgorithm } from '../types/sortingAlgorithm.model';
 import { Constants } from '../data/constants';
 import { Injectable } from '@angular/core';
 import * as  createjs from 'createjs-module';
@@ -34,34 +34,20 @@ export class StateModule {
         this.registers[0].init(this.registerLength);
         this.sortingAlgorithms.push({
             name: 'insertion',
-            sorter: this.sorterInsertion,
-            substepSorter: null,
-            substepRenderer: null
+            sorter: this.sorterInsertion
         });
         this.sortingAlgorithms.push({
             name: 'bubble',
-            sorter: this.sorterBubble,
-            substepSorter: null,
-            substepRenderer: null
+            sorter: this.sorterBubble
         });
         this.sortingAlgorithms.push({
             name: 'selection',
-            sorter: this.sorterSelection,
-            substepSorter: null,
-            substepRenderer: null
+            sorter: this.sorterSelection
         });
         this.sortingAlgorithms.push({
             name: 'comb',
-            sorter: this.sorterComb,
-            substepSorter: null,
-            substepRenderer: null
+            sorter: this.sorterComb
         });
-        // this.sortingAlgorithms.push({
-        //     name: 'shell',
-        //     sorter: this.sorterShell,
-        //     substepSorter: null,
-        //     substepRenderer: null
-        // });
     }
 
     resetRegisters(): void {

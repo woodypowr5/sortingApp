@@ -1,4 +1,4 @@
-import { Register } from '../interfaces/register.model';
+import { Register } from '../types/register.model';
 import { ColorModule } from './colorModule';
 import { StateModule } from './stateModule';
 import { Constants } from '../data/constants';

@@ -17,10 +17,5 @@ export class SortingModule {
         this.stateModule.setRegisters(registers);
         return true;
     }
-
-    doSubstep(): boolean {
-        console.log("substep");
-        return false;
-    }
 }
 
