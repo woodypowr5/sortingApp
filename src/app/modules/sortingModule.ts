@@ -11,12 +11,16 @@ export class SortingModule {
             algorithm => algorithm.name === this.stateModule.getSortingAlgorithm()
         );
         const registers = this.stateModule.getRegisters();
+<<<<<<< HEAD
         const currentRegister = registers[registers.length - 1];
         sortingAlgorithm[0].substepSorter.sort(currentRegister);
         
         const nextRegister = sortingAlgorithm[0].sorter.sort(currentRegister);
+=======
+        const newRegister = sortingAlgorithm[0].sorter.sort(registers[registers.length - 1]);
+>>>>>>> parent of 3a7a465... Added substepSorterSelction into algorithms
 
-        registers.push(nextRegister);
+        registers.push(newRegister);
         this.stateModule.setRegisters(registers);
         return true;
     }

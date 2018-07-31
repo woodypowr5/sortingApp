@@ -8,9 +8,12 @@ export class SubstepSorterSelection extends SubstepSorter {
         super();
     }
 
+<<<<<<< HEAD
     public sort(register: Register) {
         console.log(register)
+=======
+    public sortSubstep(metadata: SubstepMetadata) {
+
+>>>>>>> parent of 3a7a465... Added substepSorterSelction into algorithms
     }
-
-
 }

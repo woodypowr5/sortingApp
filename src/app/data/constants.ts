@@ -7,8 +7,7 @@ export const Constants = {
         canvasWidth: 800,
         canvasHeight: 800,
         colors: 'color',
-        canvasId: 'demoCanvas',
-        showSubsteps: true
+        canvasId: 'demoCanvas'
     },
     speeds: [
         {

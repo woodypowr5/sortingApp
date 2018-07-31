@@ -14,8 +14,6 @@ import { SorterInsertion } from './classes/sorter/sorterInsertion';
 import { SorterBubble } from './classes/sorter/sorterBubble';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatButtonToggleModule } from '@angular/material';
-import { SubstepSorterSelection } from './classes/substepSorter/substepSorterSelection';
-
 
 @NgModule({
   declarations: [
@@ -39,7 +37,6 @@ import { SubstepSorterSelection } from './classes/substepSorter/substepSorterSel
     SorterSelection,
     SorterShell,
     SorterComb,
-    SubstepSorterSelection,
     Clock
   ],
   bootstrap: [AppComponent]
